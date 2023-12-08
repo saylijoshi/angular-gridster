@@ -1,0 +1,27 @@
+<div style="height: 100vh;overflow: auto; padding: 50px;">
+    <table class="mytable">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First<i (click)="onSortClick($event)" class="my-icon fa fa-chevron-up"></i></th>
+            <th scope="col">Last</th>
+            <th scope="col">Email</th>
+            <th scope="col">Address</th>
+            <th scope="col">Created</th>
+            <th scope="col">Balance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let obj of data | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize ;let i=index">
+            <th scope="row">{{i}}</th>
+            <td>{{obj.first}}</td>
+            <td>{{obj.last}}</td>
+            <td>{{obj.email}}</td>
+            <td>{{obj.address}}</td>
+            <td>{{obj.created}}</td>
+            <td>{{obj.balance}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <ngb-pagination [pageSize] = "5" [collectionSize]="70" [(page)]="page" aria-label="Default pagination"></ngb-pagination>
+</div>
